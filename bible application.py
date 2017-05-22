@@ -36,7 +36,7 @@ class bibleapp(Frame):
         self.frameprogram()
 
     def frameprogram(self):
-        self.img=PhotoImage(file='C:/Users/10/Desktop/Bible/Book_48px.png')
+        self.img=PhotoImage(file='Bible/Book_48px.png')
         self.blab2=Label(self.frame, image=self.img, width=2000, height=50, bg='sky blue').pack()
         self.lbl=Label(self.frame, text='Standard Bible Application', justify='left', font='arial 10 bold', bg='sky blue', width=1200, height=2).pack(ipady=0, ipadx=4)
         self.btn1=Button(self.frame1, text='Testament?', command=self.changename, fg='red', font='arial 9 bold').pack(side=LEFT)
@@ -55,13 +55,13 @@ class bibleapp(Frame):
         self.searchd=Label(self.frame2, text='search Text?', fg='red', font='arial 9 bold').pack(side=LEFT)
         self.searchtt_textvariable=StringVar()
         self.searchtt=Entry(self.frame2, width=20, textvariable=self.searchtt_textvariable).pack(side=LEFT)
-        self.img7=PhotoImage(file='C:/Users/10/Desktop/Bible/Search_48px_thumbnail.png')
+        self.img7=PhotoImage(file='Bible/Search_48px_thumbnail.png')
         self.searchddx=Button(self.frame2, image=self.img7, width=14, height=14, command=self.searchddthread)
         self.searchddx.pack(side=LEFT)
 
         self.blab = Label(self.frame3, text='Bible', width=60).pack(side=LEFT)
         self.blab = Label(self.frame3, text='Note', width=60).pack(side=LEFT)
-        self.text=Text(self.frame4, width=80, height=25, font='arial 9', fg='purple', wrap='word', state=DISABLED)
+        self.text=Text(self.frame4, width=200, height=25, font='arial 9', fg='purple', wrap='word', state=DISABLED)
         self.scrolsl=Scrollbar(self.frame4)
         self.scrolsl.config(command=self.text.yview)
         self.scrolsl.pack(side=LEFT, fill=Y)
@@ -69,13 +69,6 @@ class bibleapp(Frame):
         self.text.tag_configure('tag-left', justify='left')
         self.text.tag_configure('tag-center', justify='center')
         self.text.pack(side=LEFT, fill=Y)
-
-        self.text1=Text(self.frame4, width=55, height=25, wrap='word', fg='dark grey')
-        self.scrolsl1 = Scrollbar(self.frame4)
-        self.scrolsl1.config(command=self.text1.yview)
-        self.scrolsl1.pack(side=RIGHT, fill=Y)
-        self.text1.config(yscrollcommand=self.scrolsl1.set)
-        self.text1.pack(side=LEFT, fill=Y)
 
         self.loading()
 
@@ -86,7 +79,7 @@ class bibleapp(Frame):
         self.loading()
 
     def loading(self):
-        with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+        with open('Bible/kjvdat.txt', 'r') as file:
             self.text.config(state=NORMAL)
             self.text.config(fg='purple')
             self.vy='Old and New Testament'
@@ -102,7 +95,7 @@ class bibleapp(Frame):
 
     def saving(self):
         self.file='backingfile.txt'
-        self.files='C:/Users/10/Desktop/Bible/'+self.file
+        self.files='/Bible/'+self.file
         if os.path.exists(self.files):
             with open(self.files, 'w') as filing:
                 filing.flush()
@@ -136,7 +129,7 @@ class bibleapp(Frame):
                 self.gg3=self.gg[-2][0:3]
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('/Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2)+ '.*' + str(self.gg3) + '.*' + str(
@@ -157,7 +150,7 @@ class bibleapp(Frame):
                 self.gg3=self.gg[-2][0:3]
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('/Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2)+ '.*' + str(self.gg3) + '.*' + str(
@@ -178,7 +171,7 @@ class bibleapp(Frame):
                 self.gg3=self.gg3[0].upper() + self.gg2[1:3].lower()
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2)+ '.*' + str(self.gg3) + '.*' + str(
@@ -199,7 +192,7 @@ class bibleapp(Frame):
                 self.gg2 = self.gg[1][0:3]
                 self.gg4 = self.gg4[0].upper() + self.gg4[1:3].lower()
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2) + '.*' + str(
@@ -219,7 +212,7 @@ class bibleapp(Frame):
                 self.gg2 = self.gg[1][0:3]
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2) + '.*' + str(
@@ -244,7 +237,7 @@ class bibleapp(Frame):
                 self.gg2 = self.gg[1][0:3]
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2) + '.*' + str(
@@ -264,7 +257,7 @@ class bibleapp(Frame):
                 self.gg2 = self.gg2[0].upper() + self.gg2[1:3].lower()
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2) + '.*' + str(
@@ -285,7 +278,7 @@ class bibleapp(Frame):
                 self.gg2 = self.gg[1][0:3]
                 self.gg4 = self.gg4[0].upper() + self.gg4[1:3].lower()
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2) + '.*' + str(
@@ -305,7 +298,7 @@ class bibleapp(Frame):
                 self.gg2 = self.gg[1][0:3]
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search(str(self.gg1) + '.*' + str(self.gg2) + '.*' + str(
@@ -324,7 +317,7 @@ class bibleapp(Frame):
                 self.gg1 = self.gg1[0].upper() + self.gg1[1:3].lower()
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search('.*' + str(self.gg1) + '.*' + str(
@@ -343,7 +336,7 @@ class bibleapp(Frame):
                 self.gg1 = self.gg[0][0:3]
                 self.gg4 = self.gg4[0].upper()+self.gg4[1:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search('.*' + str(self.gg1) + '.*' + str(
@@ -362,7 +355,7 @@ class bibleapp(Frame):
                 self.gg1 = self.gg[0][0:3]
                 self.gg4 = self.gg[-1][0:3]
 
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search('.*' + str(self.gg1) + '.*' + str(
@@ -380,7 +373,7 @@ class bibleapp(Frame):
         elif len(self.gg) == 1:
             if self.gg1[0].islower():
                 self.gg1 = self.gg1[0].upper() + self.gg1[1:3].lower()
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search('.*' + str(self.gg1) + '.*', linex):
@@ -394,7 +387,7 @@ class bibleapp(Frame):
                 file.close()
             if self.gg1[-1].islower():
                 self.gg1 = self.gg[0][0:3]
-                with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                with open('Bible/kjvdat.txt', 'r') as file:
                     for linex in file:
                         linex = linex.rstrip()
                         if re.search('.*' + str(self.gg1) + '.*', linex):
@@ -416,7 +409,7 @@ class bibleapp(Frame):
         self.lbl3['text']='Book of the '+self.yea
         if self.yea=='Old Testament':
             self.biblist = []
-            with open('C:/Users/10/Desktop/Bible/Old Testament.txt', 'r') as file:
+            with open('Bible/Old Testament.txt', 'r') as file:
                 for f in file:
                     fx=f.strip(),
                     self.biblist.append(fx)
@@ -424,7 +417,7 @@ class bibleapp(Frame):
                 self.spin2['value']=self.biblist
         else:
             self.biblist = []
-            with open('C:/Users/10/Desktop/Bible/New Testament.txt', 'r') as file:
+            with open('Bible/New Testament.txt', 'r') as file:
                 for f in file:
                     fx=f.strip(),
                     self.biblist.append(fx)
@@ -433,7 +426,7 @@ class bibleapp(Frame):
             file.close()
     def searches(self):
         try:
-            with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+            with open('Bible/kjvdat.txt', 'r') as file:
                 self.det1 = self.spin2.get()
                 if self.det1[0] != '{':
                     self.text.config(state=NORMAL)
@@ -507,7 +500,7 @@ class bibleapp(Frame):
                         self.det3 = 'Jo3'
                     else:
                         self.det3 = ''
-                    with open('C:/Users/10/Desktop/Bible/kjvdat.txt', 'r') as file:
+                    with open('Bible/kjvdat.txt', 'r') as file:
                         for lines in file:
                             lines = lines.rstrip()
                             if re.search('^' + str(self.det3), lines):
